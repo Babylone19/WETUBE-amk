@@ -14,6 +14,7 @@ export default class VideoRouter {
     }
 
     initializeRoutes(){
+        this.router.get("/stream/:id", this.videoController.getStreamVideo.bind(this.videoController));
         this.router.get("/", this.videoController.getVideos.bind(this.videoController));
         this.router.post("/", upload.single("mediaPath"), this.videoController.createVideo.bind(this.videoController));
         this.router.get("/:id", this.videoController.getVideo.bind(this.videoController));
